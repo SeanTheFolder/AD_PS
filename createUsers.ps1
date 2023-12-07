@@ -4,6 +4,8 @@ $USER_FIRST_LAST_LIST = Get-Content .\names.txt
 # ------------------------------------------------------ #
 
 $password = ConvertTo-SecureString $PASSWORD_FOR_USERS -AsPlainText -Force
+
+﻿# - added false flag only for homelab use, remove for production environment - #
 New-ADOrganizationalUnit -Name _USERS -ProtectedFromAccidentalDeletion $false
 
 foreach ($n in $USER_FIRST_LAST_LIST) {
